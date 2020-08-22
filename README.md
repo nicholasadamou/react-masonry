@@ -2,25 +2,21 @@
 
 _Have you ever needed to quickly spin up a simple image gallery with masonry tiling in React? You've come to the right place!_
 
-[![NPM](https://nodei.co/npm/react-masonry.png)](https://npmjs.org/package/react-masonry)
-
 ## Getting Started
 
 React Masonry is a simple react component that lets you add a gallery of images or other components in the form of a masonry system to your app. It's super light-weight and requires no external dependencies!
 
 ## Installation
 
-You can download the package from `npm` with:
+You can download the package using `wget` with:
 
-`npm install react-masonry --save`
+`wget https://github.com/nicholasadamou/react-masonry/blob/master/src/components/Masonry.js`
 
 ## Usage (Simple)
 
 To use, simply import the component and specify an array of images and number of columns:
 
-```
-import Masonry from 'react-masonry';
-
+```js
 <Masonry
     images={[
         'https://media.giphy.com/media/8Ry7iAVwKBQpG/giphy.gif',
@@ -34,9 +30,7 @@ import Masonry from 'react-masonry';
 
 You can also pass in an array of components, `width`, `height`, `scroll` and `animate` like this:
 
-```
-import Masonry from 'react-masonry';
-
+```js
 <Masonry
     columns={3}
     width={"600px"}
