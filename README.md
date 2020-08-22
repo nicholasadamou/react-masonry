@@ -8,15 +8,17 @@ React Masonry is a simple react component that lets you add a gallery of images 
 
 ## Installation
 
-You can download the package using `wget` with:
+You can download the package using `npm` with:
 
-`wget https://github.com/nicholasadamou/react-masonry/blob/master/src/components/Masonry.js`
+`npm install @nicholasadamou/react-masonry --save`
 
 ## Usage (Simple)
 
 To use, simply import the component and specify an array of images and number of columns:
 
-```js
+```
+import Masonry from '@nicholasadamou/react-masonry';
+
 <Masonry
     images={[
         'https://media.giphy.com/media/8Ry7iAVwKBQpG/giphy.gif',
@@ -30,7 +32,9 @@ To use, simply import the component and specify an array of images and number of
 
 You can also pass in an array of components, `width`, `height`, `scroll` and `animate` like this:
 
-```js
+```
+import Masonry from '@nicholasadamou/react-masonry';
+
 <Masonry
     columns={3}
     width={"600px"}
