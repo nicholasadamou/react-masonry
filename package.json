@@ -1,6 +1,6 @@
 {
   "name": "@nicholasadamou/react-masonry",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "license": "MIT",
   "homepage": "https://github.com/nicholasadamou/react-masonry",
@@ -13,6 +13,11 @@
     "grid",
     "layout",
     "masonry"
+  ],
+  "main": "build/Masonry.js",
+  "files": [
+    "build",
+    "README.md"
   ],
   "babel": {
     "presets": [
