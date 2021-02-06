@@ -23,7 +23,7 @@ class Masonry extends React.Component {
     try {
       if (
         prevProps.columns !== this.props.columns ||
-        !this.areArraysEqual(prevProps.images, this.props.images) ||
+        !this.areArraysEqual(prevProps.elements, this.props.elements) ||
         (prevProps.children || []).length !==
           (this.props.children || []).length ||
         !(prevProps.children || []).every((child, i) => {
@@ -35,8 +35,6 @@ class Masonry extends React.Component {
           newState[`col-${i}`] = [];
         }
         this.setState(newState);
-
-        this.cancel();
 
         const tiles = this.getTiles(prevProps);
 
@@ -83,7 +81,20 @@ class Masonry extends React.Component {
     return shortestColumn;
   };
 
-  getImages = (element) => {
+  getTallestColumn = () => {
+	  const columns = this.getColumns();
+
+	  let tallestColumn = 0;
+	  columns.forEach((column, index) => {
+		  if (column.offsetHeight > columns[tallestColumn].offsetHeight) {
+			  tallestColumn = index;
+		  }
+	  });
+
+	  return tallestColumn;
+  }
+
+  getElements = (element) => {
     if (!element) {
       return [];
     }
@@ -95,20 +106,20 @@ class Masonry extends React.Component {
     let children = element.props ? element.props.children : false;
 
     if (children) {
-      let images = [];
+      let elements = [];
       React.Children.forEach(children, (child) => {
-        images = images.concat(this.getImages(child));
+        elements = elements.concat(this.getElements(child));
       });
-      return images;
+      return elements;
     }
 
     return [];
   };
 
-  loadImages = (images) => {
+  loadElements = (elements) => {
     const data = [];
 
-    images.forEach((src) => {
+    elements.forEach((src) => {
       data.push(
         new Promise((resolve, reject) => {
           let image = new Image();
@@ -130,8 +141,8 @@ class Masonry extends React.Component {
   getTiles = (props) => {
     let tiles = [];
 
-    if (props.images) {
-      tiles = props.images.map((image, index) => {
+    if (props.elements) {
+      tiles = props.elements.map((image, index) => {
         return (
           <img
             src={image}
@@ -155,7 +166,7 @@ class Masonry extends React.Component {
         return child;
       });
     } else {
-      console.warn('No images were passed into react-masonry');
+      console.warn('No elements were passed into react-masonry');
     }
 
     return tiles;
@@ -183,8 +194,8 @@ class Masonry extends React.Component {
       }
       tile = React.cloneElement(tile, { style });
 
-      const images = this.getImages(tile);
-      this.loadImages(images)
+      const elements = this.getElements(tile);
+      this.loadElements(elements)
         .then(() => {
           const shortestColumn = this.getShortestColumn();
 
