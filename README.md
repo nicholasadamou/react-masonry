@@ -1,4 +1,4 @@
-# React Masonry [![Build Status](https://travis-ci.org/nicholasadamou/react-masonry.svg?branch=master)](https://travis-ci.org/nicholasadamou/react-masonry)
+# React Masonry
 
 _Have you ever needed to quickly spin up a simple image gallery with masonry tiling in React? You've come to the right place!_
 
@@ -8,16 +8,16 @@ React Masonry is a simple react component that lets you add a gallery of images 
 
 ## Installation
 
-You can download the package using `npm` with:
+## Installation
 
-`npm install @nicholasadamou/react-masonry --save`
+Download [the file](Masonry.js) and place it into your project's components directory structure.
 
 ## Usage (Simple)
 
 To use, simply import the component and specify an array of images and number of columns:
 
 ```
-import Masonry from '@nicholasadamou/react-masonry';
+import Masonry from '@components/Masonry'; // Assuming 'Masonry.js' is in your components directory.
 
 <Masonry
     images={[
