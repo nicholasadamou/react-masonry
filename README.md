@@ -33,7 +33,7 @@ import Masonry from '@components/Masonry'; // Assuming 'Masonry.js' is in your c
 You can also pass in an array of components, `width`, `height`, `scroll` and `animate` like this:
 
 ```
-import Masonry from '@nicholasadamou/react-masonry';
+import Masonry from '@components/Masonry'; // Assuming 'Masonry.js' is in your components directory.
 
 <Masonry
     columns={3}
